@@ -1,0 +1,24 @@
+{
+  "name": "node-apollo-prisma-hackernews-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shigasy/node-apollo-prisma-hackernews-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shigasy/node-apollo-prisma-hackernews-example/issues"
+  },
+  "homepage": "https://github.com/shigasy/node-apollo-prisma-hackernews-example#readme",
+  "dependencies": {
+    "apollo-server": "^3.1.2",
+    "graphql": "^15.5.1"
+  }
+}
