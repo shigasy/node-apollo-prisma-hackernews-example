@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/shigasy/node-apollo-prisma-hackernews-example#readme",
   "dependencies": {
+    "@prisma/client": "^2.29.1",
     "apollo-server": "^3.1.2",
     "graphql": "^15.5.1"
+  },
+  "devDependencies": {
+    "prisma": "^2.29.1"
   }
 }
