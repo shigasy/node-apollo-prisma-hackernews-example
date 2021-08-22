@@ -4,6 +4,7 @@ import Query from "./resolvers/Query";
 import Mutation from "./resolvers/Mutation";
 import Link from "./resolvers/Link";
 import User from "./resolvers/User";
+import Vote from "./resolvers/Vote";
 import Subscription from "./resolvers/Subscription";
 import { getUserId } from "./utils";
 import { PubSub } from "graphql-subscriptions";
@@ -28,6 +29,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
     Subscription,
     Link,
     User,
+    Vote,
   };
 
   const schema = makeExecutableSchema({

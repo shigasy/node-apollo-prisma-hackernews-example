@@ -1,26 +1,26 @@
 import { Context } from "../@types/context";
 
-const postedBy = (parent, args, context: Context) => {
-  return context.prisma.link
+const link = (parent, args, context: Context) => {
+  return context.prisma.vote
     .findUnique({
       where: {
         id: parent.id,
       },
     })
-    .postedBy();
+    .link();
 };
 
-const votes = (parent, args, context: Context) => {
-  return context.prisma.link
+const user = (parent, args, context: Context) => {
+  return context.prisma.vote
     .findUnique({
       where: {
         id: parent.id,
       },
     })
-    .votes();
+    .user();
 };
 
 export default {
-  postedBy,
-  votes,
+  link,
+  user,
 };

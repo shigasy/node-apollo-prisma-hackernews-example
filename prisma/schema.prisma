@@ -17,6 +17,7 @@ model Link {
   url         String
   postedBy    User?    @relation(fields: [postedById], references: [id]) // フィールドとしてあるわけではない、studioにはある & prisma clientの型推論的にはある prismaのためのものだと思われ
   postedById  Int?
+  votes       Vote[]
 }
 
 model User {
@@ -25,4 +26,16 @@ model User {
   email    String @unique
   password String
   links    Link[] // 消すとエラー出るし、prismaの仕様みたいなので外部キーは必要っぽいな...？実際のCREATE TABLEにはここのフィールドないけど、prisma studioにはある
+  votes    Vote[]
+}
+
+// 多対多 中間テーブル
+model Vote {
+  id     Int  @id @default(autoincrement())
+  link   Link @relation(fields: [linkId], references: [id])
+  linkId Int
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  @@unique([linkId, userId])
 }
