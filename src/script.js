@@ -9,7 +9,8 @@ async function main() {
       url: "URL",
     },
   });
-  const allLinks = await prisma.link.findMany();
+
+  const allLinks = await prisma.link.findMany({});
   console.log(allLinks);
 }
 
