@@ -46,16 +46,24 @@ const login = async (parent, args, context: Context, info) => {
   };
 };
 
-const post = async (parent, args, context, info) => {
+const post = async (parent, args, context: Context, info) => {
   const { userId } = context;
 
-  return await context.prisma.link.create({
+  if (userId === null) {
+    throw new Error("null user id");
+  }
+
+  const newLink = await context.prisma.link.create({
     data: {
       url: args.url,
       description: args.description,
       postedBy: { connect: { id: userId } },
     },
   });
+
+  context.pubsub.publish("NEW_LINK", newLink);
+
+  return newLink;
 };
 
 export default {
